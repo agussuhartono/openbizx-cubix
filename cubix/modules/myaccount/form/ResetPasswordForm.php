@@ -44,7 +44,7 @@ class ResetPasswordForm extends UserForm
 	
 	public function fetchData()
 	{
-		if($this->getViewObject()->isForceResetPassword())
+		if($this->getWebpageObject()->isForceResetPassword())
 		{
 			$this->defaultLogoff = 'N';
 		}else{
@@ -112,7 +112,7 @@ class ResetPasswordForm extends UserForm
         $this->notices[] = $this->GetMessage("USER_DATA_UPDATED");                
         $this->updateForm();
  
-        if( $this->getViewObject()->isForceResetPassword() )
+        if( $this->getWebpageObject()->isForceResetPassword() )
         {
         	Openbiz::getService(OPENBIZ_PREFERENCE_SERVICE)->setPreference('force_change_passwd',0);
         	$profileDefaultPageArr = Openbiz::$app->getUserProfile('roleStartpage');

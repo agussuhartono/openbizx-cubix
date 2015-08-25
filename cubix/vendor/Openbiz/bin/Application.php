@@ -235,7 +235,7 @@ class Application extends \Openbiz\Object\Object
     /**
      * Get the database connection object
      *
-     * @param string $dbname, database name declared in config.xml
+     * @param string $dbName    database name declared in config.xml
      * @return \Zend_Db_Adapter_Abstract
      */
     public function getDBConnection($dbName = null)
@@ -463,12 +463,12 @@ class Application extends \Openbiz\Object\Object
     {
         /* @var $webpage \Openbiz\Easy\WebPage */
         if ($viewName == "__DynPopup") {
-            $webpage = Openbiz::getViewObject($viewName);
+            $webpage = Openbiz::getWebpageObject($viewName);
             $webpage->render();
             return;
         }        
         $this->setCurrentViewName($viewName);
-        $webpage = Openbiz::getViewObject($viewName);
+        $webpage = Openbiz::getWebpageObject($viewName);
         if (!$webpage) {
             return;
         }
@@ -622,7 +622,7 @@ class Application extends \Openbiz\Object\Object
     /**
      * Dispatch request as RPC (remote procedure call)
      */
-    private function dispatchRPC()
+    public function dispatchRPC()
     {
         if ($this->request->hasContainerView()) {
             $this->setCurrentViewName($this->request->getContainerViewName());
@@ -671,7 +671,7 @@ class Application extends \Openbiz\Object\Object
         $this->onBeforeRun();
         $this->getSessionContext();
         $eventlog = Openbiz::getService(OPENBIZ_EVENTLOG_SERVICE);
-        $logComment = array('sdsdds', $_SERVER['REMOTE_ADDR']);
+        $logComment = array('address', $_SERVER['REMOTE_ADDR']);
         $eventlog->log("LOGIN", "MSG_LOGIN_SUCCESSFUL", $logComment);
         if ($this->processSecurityFilters()) {
             $this->dispatchRequest();

@@ -487,7 +487,6 @@ class ClientProxy
         $viewName = $viewParts[count($viewParts) - 1];
         $viewName = strtolower(str_replace("View", "", $viewName));
         $url = OPENBIZ_APP_INDEX_URL . "/$viewMod/$viewName";
-        //echo "$view page url is $url. $this->isRPC";
         $this->redirectPage($url);
         $this->printOutput();
         //Openbiz::$app->getClientProxy()->printOutput();

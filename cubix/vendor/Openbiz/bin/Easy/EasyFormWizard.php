@@ -99,7 +99,7 @@ class EasyFormWizard extends EasyForm
         }
 
         $this->activeRecord = $this->readInputRecord();
-		$viewObj = $this->getViewObject();
+		$viewObj = $this->getWebpageObject();
         // get the step
     	if($viewObj->getCurrentStep()){
         	$step = $viewObj->getCurrentStep();
@@ -123,7 +123,7 @@ class EasyFormWizard extends EasyForm
      */
     public function skip()
     {
-		$viewObj = $this->getViewObject();
+		$viewObj = $this->getWebpageObject();
         // get the step
     	if($viewObj->getCurrentStep()){
         	$step = $viewObj->getCurrentStep();
@@ -148,7 +148,7 @@ class EasyFormWizard extends EasyForm
         $this->setActiveRecord($recArr);
 		$this->activeRecord = $this->readInputRecord();
 		
-        $viewObj = $this->getViewObject();
+        $viewObj = $this->getWebpageObject();
         
         // get the step
         if($viewObj->getCurrentStep()){
@@ -190,7 +190,7 @@ class EasyFormWizard extends EasyForm
         $this->activeRecord = $this->readInputRecord();
 		
         /* @var $viewObj WebPageWizard */
-        $viewObj = $this->getViewObject();
+        $viewObj = $this->getWebpageObject();
         
         $r = $viewObj->commit();        
         if (!$r)
@@ -209,7 +209,7 @@ class EasyFormWizard extends EasyForm
 
     {
         /* @var $viewObj WebPageWizard */
-        $viewObj = $this->getViewObject();
+        $viewObj = $this->getWebpageObject();
         $viewObj->cancel();
 
         $this->processPostAction();
@@ -277,7 +277,7 @@ class EasyFormWizard extends EasyForm
      */
     public function render()
     {
-        $viewobj = $this->getViewObject();
+        $viewobj = $this->getWebpageObject();
         $viewobj->setFormState($this->objectName, 'visited', 1);
 
         return parent::render();
@@ -285,7 +285,7 @@ class EasyFormWizard extends EasyForm
     public function outputAttrs()
     {
         $output = parent::outputAttrs();
-        $viewobj = $this->getViewObject();
+        $viewobj = $this->getWebpageObject();
         $forms = array();
         $viewobj->formRefs->rewind();
         while($viewobj->formRefs->valid()){

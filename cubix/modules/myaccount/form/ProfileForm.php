@@ -32,7 +32,7 @@ class ProfileForm extends ContactForm
     public function _doUpdate($inputRecord, $currentRecord)
     {
         $result = parent::_doUpdate($inputRecord, $currentRecord);
-        if ($this->getViewObject()->isForceCompeleteProfile()) {
+        if ($this->getWebpageObject()->isForceCompeleteProfile()) {
             Openbiz::getService(OPENBIZ_PREFERENCE_SERVICE)->setPreference('force_complete_profile', 0);
         }
         return $result;
@@ -40,7 +40,7 @@ class ProfileForm extends ContactForm
 
     protected function processPostAction()
     {
-        if ($this->getViewObject()->isForceCompeleteProfile()) {
+        if ($this->getWebpageObject()->isForceCompeleteProfile()) {
             $profileDefaultPageArr = Openbiz::$app->getUserProfile('roleStartpage');
             $pageURL = OPENBIZ_APP_INDEX_URL . $profileDefaultPageArr[0];
             Openbiz::$app->getClientProxy()->redirectPage($pageURL);

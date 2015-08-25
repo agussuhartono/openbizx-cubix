@@ -44,7 +44,7 @@ class SwitchUserWidget extends EasyForm
     {
         $prefService = Openbiz::getService(OPENBIZ_PREFERENCE_SERVICE);
         $userId = Openbiz::$app->getUserProfile("Id");
-        $currentView = $this->getViewObject()->objectName;
+        $currentView = $this->getWebpageObject()->objectName;
         if ($currentView != 'myaccount.view.ResetPasswordView' && !isset($_GET['force']) && (int) $prefService->getPreference("force_change_passwd") == 1) {
 
             Openbiz::$app->getClientProxy()->redirectPage(OPENBIZ_APP_INDEX_URL . '/myaccount/reset_password/force');

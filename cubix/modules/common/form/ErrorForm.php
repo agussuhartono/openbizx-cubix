@@ -38,7 +38,7 @@ class ErrorForm extends EasyForm
         $sessionContext->saveObjVar($this->objectName, "showError", $this->isShowError);
     }
 
-    public function getViewObject()
+    public function getWebpageObject()
     {
         $viewObj = Openbiz::getObject("common.view.ErrorView");
         return $viewObj;

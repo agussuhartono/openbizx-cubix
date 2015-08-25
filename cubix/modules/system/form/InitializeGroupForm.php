@@ -106,7 +106,7 @@ class InitializeGroupForm extends EasyForm
             file_put_contents($group_init_lock, '1');
 
             //redirect back to last view
-            $lastViewURL = $this->getViewObject()->getLastViewURL();
+            $lastViewURL = $this->getWebpageObject()->getLastViewURL();
             Openbiz::$app->getClientProxy()->redirectPage($lastViewURL);
             return;
         }

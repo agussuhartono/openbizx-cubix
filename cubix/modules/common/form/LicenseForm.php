@@ -32,7 +32,7 @@ class LicenseForm extends EasyForm
         return $result;
     }
 
-    public function getViewObject()
+    public function getWebpageObject()
     {
         $viewObj = Openbiz::getObject("common.view.LicenseInvalidView");
         return $viewObj;

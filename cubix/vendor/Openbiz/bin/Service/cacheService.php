@@ -153,7 +153,9 @@ class cacheService
                 $this->cacheOptions['lifetime'] = (int) $lifeTime;
             }
             //require_once 'Zend/Cache.php';
-            $this->cacheObj = \Zend_Cache::factory('Core', $this->cacheEngine, $this->cacheOptions, $this->cacheEngineOptions);
+            $this->cacheObj = \Zend_Cache::factory(
+                            'Core', $this->cacheEngine, $this->cacheOptions, $this->cacheEngineOptions
+            );
             return $this->cacheObj;
         } else {
             return false;

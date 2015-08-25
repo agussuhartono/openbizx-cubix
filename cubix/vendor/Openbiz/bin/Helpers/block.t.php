@@ -92,7 +92,6 @@ function smarty_block_t($params, $text, &$smarty)
 		}
 	}
 	//debut modif lolo
-	//utilisons \Zend_translate
 	// use plural if required parameters are set
 	/*if (isset($count) && isset($plural)) {
 		$text = ngettext($text, $plural, $count);

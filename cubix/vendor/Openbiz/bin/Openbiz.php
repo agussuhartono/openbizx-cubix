@@ -101,7 +101,7 @@ class Openbiz
      * @return WebPage  if the return object is a WebPage then return, or return null
      * @example ../../example/ViewObject.php
      */
-    public static function getViewObject($objectName)
+    public static function getWebpageObject($objectName)
     {
         return Openbiz::getObject($objectName, 0);
     }

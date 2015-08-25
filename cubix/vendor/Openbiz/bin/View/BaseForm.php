@@ -296,7 +296,7 @@ class BaseForm extends MetaObject implements Statefullable
      * @global BizSystem $g_BizSystem
      * @return WebPage
      */
-    public function getViewObject()
+    public function getWebpageObject()
     {
         $viewName = Openbiz::$app->getCurrentViewName();
         if (!$viewName) {

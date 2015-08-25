@@ -618,7 +618,7 @@ class EasyForm extends MetaObject implements Statefullable
      * @global BizSystem $g_BizSystem
      * @return WebPage
      */
-    public function getViewObject()
+    public function getWebpageObject()
     {
         $viewName = Openbiz::$app->getCurrentViewName();
         if (!$viewName)
@@ -1226,7 +1226,7 @@ class EasyForm extends MetaObject implements Statefullable
                 }
             }
         }
-        //if($this->getViewObject()->isInFormRefLibs($formName))
+        //if($this->getWebpageObject()->isInFormRefLibs($formName))
         {
             // get the form object
             /* @var $formObj EasyForm */
@@ -2009,7 +2009,7 @@ $('" . $this->objectName . "').observe('click',Openbiz.Menu.hide);
         		";
         }
         if (!$this->parentFormName) {
-            if (($viewObj = $this->getViewObject()) != null)
+            if (($viewObj = $this->getWebpageObject()) != null)
                 $viewObj->lastRenderedForm = $this->objectName;
         }
         return $formHTML . "\n" . $otherHTML;
